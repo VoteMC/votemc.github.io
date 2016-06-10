@@ -1,0 +1,57 @@
+@font-face {
+    font-family: Quicksand;
+    src: url("../fonts/Quicksand.otf");
+}
+
+@font-face {
+    font-family: Raleway;
+    src: url("../fonts/Raleway.ttf");
+}
+
+#background {
+    background: url("../imgs/ice_spikes.png") no-repeat;
+    background-size: 100% 100%;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    z-index: -1;
+}
+
+.container {
+    text-align: center;
+}
+
+#panel {
+    background-color: #fff;
+    box-shadow: 0 0 10px 3px #eee;
+    display: inline-block;
+    font-family: Raleway, sans-serif;
+    margin: 2% 0;
+    max-width: 1000px;
+    padding: 0 3%;
+}
+
+h1 {
+    font-family: Quicksand, sans-serif;
+}
+
+iframe {
+    width: 100%;
+}
+
+footer {
+    text-align: left;
+}
+
+footer p {
+    display: inline-block;
+}
+
+a {
+    color: #77a;
+}
+
+a:hover, a:focus {
+    color: #99c;
+    text-decoration: none;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Minecraft server voting made easy.">
+        <meta name="author" content="VoteMC">
+        <link rel="icon" href="assets/imgs/nametag.png">
+        
+        <title>VoteMC</title>
+        
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+        <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+        <link href="assets/css/stylesheet.css" rel="stylesheet">
+        
+        <!--[if lt IE 9]>
+            <script src="assets/js/html5shiv.min.js"></script>
+            <script src="assets/js/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div id="background"></div>
+        <div class="container">
+            <div id="panel">
+                <h1>VoteMC</h1>
+                <hr>
+                <p>VoteMC is a simple tool that allows you to embed many voting sites on a single page. You can then export this configuration to save for later.</p>
+                <div id="import" class="input-group">
+                    <input type="text" placeholder="Paste your configuration here..." class="form-control">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default">
+                            <i class="fa fa-sign-in fa-lg fa-fw"></i>
+                        Import</button>
+                    </span>
+                </div>
+                <div id="export" class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default">Export
+                            <i class="fa fa-sign-out fa-lg fa-fw"></i>
+                        </button>
+                    </span>
+                    <input type="text" placeholder="Configuration appears here..." readonly="readonly" class="form-control">
+                    <span id="copy" class="input-group-btn">
+                        <button data-clipboard-target="#export input" data-container="body" data-toggle="tooltip" data-placement="bottom" data-trigger="manual" class="btn btn-default">
+                            <i class="fa fa-copy fa-lg fa-fw"></i>
+                        </button>
+                    </span>
+                </div>
+                <hr>
+                <div id="add" class="input-group">
+                    <input type="url" placeholder="Link to voting site..." class="form-control">
+                    <span class="input-group-btn">
+                        <button title="Add voting site" class="btn btn-default">
+                            <i class="fa fa-plus fa-lg"></i>
+                        </button>
+                    </span>
+                </div>
+                <footer>
+                    <hr>
+                    <p>&copy; 2016 Synchronous</p>
+                    <a href="https://github.com/votemc/votemc.github.io" target="_blank" class="pull-right">Visit on GitHub
+                        <i class="fa fa-external-link"></i>
+                    </a>
+                </footer>
+            </div>
+        </div>
+        
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/tether.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/clipboard.min.js"></script>
+        <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
