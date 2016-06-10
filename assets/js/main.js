@@ -141,11 +141,11 @@ $("#import button").click(function() {
     var config = $("#import input").val().toLowerCase();
     var start, end;
     
-    for (var i = 0, length = config.length; i + 1 < length; ++i) {
-        if (i + 2 === length)
+    for (var i = 0, length = config.length; i < length; ++i) {
+        if (i + 1 === length)
             end = length;
         else {
-            if ((config.charAt(i) === "0" && config.charAt(i + 1) === "0") || (config.charAt(i) === "f" && config.charAt(i + 1) === "f")) {
+            if (config.charAt(i) === "g" || config.charAt(i) === "h") {
                 if (isNaN(start))
                     start = i;
                 else
@@ -154,7 +154,7 @@ $("#import button").click(function() {
         }
         
         if (!(isNaN(start) || isNaN(end))) {
-            var target = (config.charAt(start) + config.charAt(start + 1) === "00" ? "http://" : "https://") + swapData(config.substring(start + 2, end), asciiHex, 2, false);
+            var target = (config.charAt(start) === "g" ? "http://" : "https://") + swapData(config.substring(start + 1, end), asciiHex, 2, false);
             
             $("<p></p>").text(target).addClass("url pull-left").insertBefore("#add");
             $("<iframe></iframe>").attr("src", target).insertBefore("#add").before('<i class="close fa fa-close fa-lg"></i>');
@@ -171,11 +171,11 @@ $("#export button").eq(0).click(function() {
     
     $("iframe").each(function() {
         var target = $(this).attr("src").substring(7);
-        var protocol = "00";
+        var protocol = "g";
         
         if ($(this).attr("src").match(/^https/)) {
             target = target.substring(1);
-            protocol = "ff";
+            protocol = "h";
         }
         
         config += protocol + swapData(target, asciiHex, 1, true);
