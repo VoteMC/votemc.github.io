@@ -35,6 +35,15 @@ h1 {
     font-family: Quicksand, sans-serif;
 }
 
+p {
+    text-align: justify;
+}
+
+code {
+    background-color: #ccf;
+    color: #77a;
+}
+
 iframe {
     width: 100%;
 }
