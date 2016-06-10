@@ -44,7 +44,14 @@ code {
     color: #77a;
 }
 
+.url {
+    display: inline-block;
+    margin: 0;
+}
+
 iframe {
+    height: 250px;
+    resize: vertical;
     width: 100%;
 }
 

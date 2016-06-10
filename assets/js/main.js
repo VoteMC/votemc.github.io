@@ -120,7 +120,11 @@ function reRegisterClose() {
     $(".close").off("click").click(function() {
         $(this).fadeOut(function() {
             $(this).remove();
-        }).next().fadeOut(function() {
+        }).prev().fadeOut(function() {
+            $(this).remove();
+        });
+        
+        $(this).next().fadeOut(function() {
             $(this).remove();
         });
     });
@@ -150,7 +154,10 @@ $("#import button").click(function() {
         }
         
         if (!(isNaN(start) || isNaN(end))) {
-            $("<iframe></iframe>").attr("src", (config.charAt(start) + config.charAt(start + 1) === "00" ? "http://" : "https://") + swapData(config.substring(start + 2, end), asciiHex, 2, false)).insertBefore("#add").before('<i class="close fa fa-close fa-lg"></i>');
+            var target = (config.charAt(start) + config.charAt(start + 1) === "00" ? "http://" : "https://") + swapData(config.substring(start + 2, end), asciiHex, 2, false);
+            
+            $("<p></p>").text(target).addClass("url pull-left").insertBefore("#add");
+            $("<iframe></iframe>").attr("src", target).insertBefore("#add").before('<i class="close fa fa-close fa-lg"></i>');
             reRegisterClose();
             
             start = i;
@@ -208,12 +215,13 @@ $("#add input").keypress(function(event) {
 });
 
 $("#add button").click(function() {
-    target = $("#add input").val();
+    var target = $("#add input").val();
     
     if (!target.match(/\s/g) && target.match(/\.\w/g)) {
         if (!target.match(/^https?:\/\//))
             target = "http://" + target;
         
+        $("<p></p>").text(target).addClass("url pull-left").insertBefore("#add");
         $("<iframe></iframe>").attr("src", target).insertBefore("#add").before('<i class="close fa fa-close fa-lg"></i>');
         reRegisterClose();
     }
