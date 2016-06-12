@@ -26,36 +26,30 @@
             <div id="panel">
                 <h1>VoteMC</h1>
                 <hr>
-                <p>VoteMC is a simple tool that allows you to embed many voting sites on a single page. You can then export this configuration to save for later. Please note that for this site to work properly, you need JavaScript and the
+                <p>VoteMC is a simple tool that allows you to embed many voting sites on a single page. You can then export them as a single link to save for later. Please note that for this site to work properly, you need JavaScript and the
                     <code>iframe</code>
-                tag enabled. Almost all browsers should have these enabled by default. Happy voting!</p>
-                <div id="import" class="input-group">
-                    <input type="text" placeholder="Paste your configuration here..." class="form-control">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default">
-                            <i class="fa fa-sign-in fa-lg fa-fw"></i>
-                        Import</button>
-                    </span>
-                </div>
-                <div id="export" class="input-group">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default">Export
-                            <i class="fa fa-sign-out fa-lg fa-fw"></i>
-                        </button>
-                    </span>
-                    <input type="text" placeholder="Configuration appears here..." readonly="readonly" class="form-control">
-                    <span id="copy" class="input-group-btn">
-                        <button data-clipboard-target="#export input" data-container="body" data-toggle="tooltip" data-placement="bottom" data-trigger="manual" class="btn btn-default">
-                            <i class="fa fa-copy fa-lg fa-fw"></i>
-                        </button>
-                    </span>
-                </div>
+                tag enabled. All major browsers should have these enabled by default. Happy voting!</p>
                 <hr>
+                <ul class="list-unstyled"></ul>
                 <div id="add" class="input-group">
                     <input type="url" placeholder="Link to voting site..." class="form-control">
                     <span class="input-group-btn">
                         <button title="Add voting site" class="btn btn-default">
                             <i class="fa fa-plus fa-lg"></i>
+                        </button>
+                    </span>
+                </div>
+                <br>
+                <div id="export" class="input-group">
+                    <span class="input-group-btn">
+                        <button title="Export voting sites" class="btn btn-default">Export
+                            <i class="fa fa-sign-out fa-lg fa-fw"></i>
+                        </button>
+                    </span>
+                    <input type="text" placeholder="Link appears here..." readonly="readonly" class="form-control">
+                    <span id="copy" class="input-group-btn">
+                        <button title="Copy link" data-clipboard-target="#export input" data-container="body" data-toggle="tooltip" data-placement="bottom" data-trigger="manual" class="btn btn-default">
+                            <i class="fa fa-copy fa-lg fa-fw"></i>
                         </button>
                     </span>
                 </div>

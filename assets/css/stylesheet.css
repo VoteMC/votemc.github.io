@@ -44,6 +44,15 @@ code {
     color: #77a;
 }
 
+a {
+    color: #77a;
+}
+
+a:hover, a:focus {
+    color: #99c;
+    text-decoration: none;
+}
+
 .url {
     display: inline-block;
     margin: 0;
@@ -61,13 +70,4 @@ footer {
 
 footer p {
     display: inline-block;
-}
-
-a {
-    color: #77a;
-}
-
-a:hover, a:focus {
-    color: #99c;
-    text-decoration: none;
 }

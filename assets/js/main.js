@@ -116,29 +116,31 @@ function swapData(string, map, keyLength, reverse) {
     return swapped;
 }
 
-function reRegisterClose() {
-    $(".close").off("click").click(function() {
-        $(this).fadeOut(function() {
-            $(this).remove();
-        }).prev().fadeOut(function() {
-            $(this).remove();
-        });
-        
-        $(this).next().fadeOut(function() {
+function registerIFrame(target) {
+    var $iframe = $("<li></li>");
+    $("<a></a>").attr("href", target).attr("target", "_blank").addClass("url pull-left").text(target + " ").append('<i class="fa fa-external-link"></i>').appendTo($iframe);
+    $('<i class="close fa fa-remove fa-lg"></i>').attr("title", "Remove voting site").appendTo($iframe);
+    $('<i class="close fa fa-arrows-v fa-fw"></i>').attr("title", "Maximize voting site").appendTo($iframe);
+    $("<iframe></iframe>").attr("src", target).appendTo($iframe);
+    $("ul").append($iframe);
+    
+    $(".fa-arrows-v").off("click").click(function maximize() {
+        $(this).off("click").click(function() {
+            $(this).off("click").click(maximize).removeClass("fa-long-arrow-down").addClass("fa-arrows-v").attr("title", "Maximize voting site").siblings("iframe").animate({height: 250}, 500);
+            $("html, body").animate({scrollTop: $(this).offset().top}, 500);
+        }).removeClass("fa-arrows-v").addClass("fa-long-arrow-down").attr("title", "Minimize voting site").siblings("iframe").animate({height: $(window).height()}, 500);
+        $("html, body").animate({scrollTop: $(this).siblings("iframe").offset().top}, 500);
+    });
+    
+    $(".fa-remove").off("click").click(function() {
+        $(this).parent().fadeOut(function() {
             $(this).remove();
         });
     });
 }
 
-$("#import input").keypress(function(event) {
-    if (event.which === 13) {
-        $("#import button").trigger("click");
-        return false;
-    }
-});
-
-$("#import button").click(function() {
-    var config = $("#import input").val().toLowerCase();
+if (window.location.href.lastIndexOf("#") !== -1) {
+    var config = window.location.href.substring(window.location.href.lastIndexOf("#") + 1).toLowerCase();
     var start, end;
     
     for (var i = 0, length = config.length; i < length; ++i) {
@@ -155,16 +157,12 @@ $("#import button").click(function() {
         
         if (!(isNaN(start) || isNaN(end))) {
             var target = (config.charAt(start) === "g" ? "http://" : "https://") + swapData(config.substring(start + 1, end), asciiHex, 2, false);
-            
-            $("<p></p>").text(target).addClass("url pull-left").insertBefore("#add");
-            $("<iframe></iframe>").attr("src", target).insertBefore("#add").before('<i class="close fa fa-close fa-lg"></i>');
-            reRegisterClose();
-            
             start = i;
             end = undefined;
+            registerIFrame(target);
         }
     }
-});
+}
 
 $("#export button").eq(0).click(function() {
     var config = "";
@@ -181,7 +179,8 @@ $("#export button").eq(0).click(function() {
         config += protocol + swapData(target, asciiHex, 1, true);
     });
     
-    $("#export input").val(config);
+    if (config !== "")
+        $("#export input").val("http://votemc.github.io/#" + config);
 });
 
 var clipboard = new Clipboard("#copy button");
@@ -196,11 +195,15 @@ clipboard.on("success", function(event) {
 });
 
 $("#copy button").click(function() {
+    $(this).attr("title", "");
+    
     if (!$("#export input").val()) {
         $(this).attr("data-original-title", "There's nothing to copy!");
         $(this).tooltip("show");
+        $(this).attr("title", "Copy link");
         return false;
-    }
+    } else
+        $(this).attr("title", "Copy link");
 });
 
 $("#copy button").mouseleave(function() {
@@ -217,12 +220,12 @@ $("#add input").keypress(function(event) {
 $("#add button").click(function() {
     var target = $("#add input").val();
     
-    if (!target.match(/\s/g) && target.match(/\.\w/g)) {
+    if (target.match(/\w/g) && target.match(/^.*\w\.\w/g) && !target.match(/\s/g)) {
         if (!target.match(/^https?:\/\//))
             target = "http://" + target;
+        if (!target.match(/^.+\/{2}.+\/+/))
+            target += "/";
         
-        $("<p></p>").text(target).addClass("url pull-left").insertBefore("#add");
-        $("<iframe></iframe>").attr("src", target).insertBefore("#add").before('<i class="close fa fa-close fa-lg"></i>');
-        reRegisterClose();
+        registerIFrame(target);
     }
 });
