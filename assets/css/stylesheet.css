@@ -1,15 +1,5 @@
-@font-face {
-    font-family: Quicksand;
-    src: url("../fonts/Quicksand.otf");
-}
-
-@font-face {
-    font-family: Raleway;
-    src: url("../fonts/Raleway.ttf");
-}
-
-#background {
-    background: url("../imgs/ice_spikes.png") no-repeat;
+div#background {
+    background: #8babff url("../imgs/background.png") no-repeat;
     background-size: 100% 100%;
     height: 100%;
     position: fixed;
@@ -17,43 +7,49 @@
     z-index: -1;
 }
 
-.container {
+div.container {
     text-align: center;
 }
 
-#panel {
-    background-color: #fff;
-    box-shadow: 0 0 10px 3px #eee;
+div#panel {
+    background-color: #79e;
+    border-radius: 1em;
+    box-shadow: 0 0 0.8em 0.25em #eee;
     display: inline-block;
     font-family: Raleway, sans-serif;
     margin: 2% 0;
-    max-width: 1000px;
+    max-width: 75em;
+    opacity: 0.9;
     padding: 0 3%;
 }
 
 h1 {
-    font-family: Quicksand, sans-serif;
+    color: #fff;
+    font-family: "Arima Madurai", cursive;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+}
+
+i.fa.fa-tag {
+    color: #adf;
+    font-size: 0.8em;
 }
 
 p {
+    color: white;
     text-align: justify;
 }
 
-code {
-    background-color: #eef;
-    color: #77a;
-}
-
 a {
-    color: #77a;
+    color: #adf;
 }
 
 a:hover, a:focus {
-    color: #99c;
+    color: #bef;
     text-decoration: none;
 }
 
-.url {
+a.url {
     display: inline-block;
     margin: 0;
 }
