@@ -1,69 +1,69 @@
 div#background {
-    background: #8babff url("../imgs/background.png") no-repeat;
-    background-size: 100% 100%;
-    height: 100%;
-    position: fixed;
-    width: 100%;
-    z-index: -1;
+	background: #8babff url("../imgs/background.png") no-repeat;
+	background-size: 100% 100%;
+	height: 100%;
+	position: fixed;
+	width: 100%;
+	z-index: -1;
 }
 
 div.container {
-    text-align: center;
+	text-align: center;
 }
 
 div#panel {
-    background-color: #79e;
-    border-radius: 1em;
-    box-shadow: 0 0 0.8em 0.25em #eee;
-    display: inline-block;
-    font-family: Raleway, sans-serif;
-    margin: 2% 0;
-    max-width: 75em;
-    opacity: 0.9;
-    padding: 0 3%;
+	background-color: #79e;
+	border-radius: 1em;
+	box-shadow: 0 0 0.8em 0.25em #eee;
+	display: inline-block;
+	font-family: Raleway, sans-serif;
+	margin: 2% 0;
+	max-width: 75em;
+	opacity: 0.9;
+	padding: 0 3%;
 }
 
 h1 {
-    color: #fff;
-    font-family: "Arima Madurai", cursive;
-    font-weight: bold;
-    letter-spacing: 0.1em;
+	color: #fff;
+	font-family: "Arima Madurai", cursive;
+	font-weight: bold;
+	letter-spacing: 0.1em;
 }
 
 i.fa.fa-tag {
-    color: #adf;
-    font-size: 0.8em;
+	color: #adf;
+	font-size: 0.8em;
 }
 
 p {
-    color: white;
-    text-align: justify;
+	color: white;
+	text-align: justify;
 }
 
 a {
-    color: #adf;
+	color: #adf;
 }
 
 a:hover, a:focus {
-    color: #bef;
-    text-decoration: none;
+	color: #bef;
+	text-decoration: none;
 }
 
 a.url {
-    display: inline-block;
-    margin: 0;
+	display: inline-block;
+	margin: 0;
 }
 
 iframe {
-    height: 250px;
-    resize: vertical;
-    width: 100%;
+	height: 250px;
+	resize: vertical;
+	width: 100%;
 }
 
 footer {
-    text-align: left;
+	text-align: left;
 }
 
 footer p {
-    display: inline-block;
+	display: inline-block;
 }
